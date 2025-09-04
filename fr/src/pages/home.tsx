@@ -19,7 +19,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   insertContactSubmissionSchema,
   type InsertContactSubmission,
-} from "@shared/schema";
+} from "@/lib/schema";
 import {
   Users,
   Search,
