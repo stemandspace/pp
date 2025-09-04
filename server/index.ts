@@ -61,18 +61,11 @@ app.use((req, res, next) => {
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
   const port = parseInt(process.env.PORT || '5000', 10);
-
-  // For Vercel, we need to handle the case where the server might not need to listen
-  if (process.env.VERCEL) {
-    // In Vercel environment, the server is handled by the platform
-    log(`Server configured for Vercel deployment`);
-  } else {
-    server.listen({
-      port,
-      host: "0.0.0.0",
-      reusePort: true,
-    }, () => {
-      log(`serving on port ${port}`);
-    });
-  }
+  server.listen({
+    port,
+    host: "0.0.0.0",
+    reusePort: true,
+  }, () => {
+    log(`serving on port ${port}`);
+  });
 })();
